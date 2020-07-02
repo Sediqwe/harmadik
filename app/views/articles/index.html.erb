@@ -1,0 +1,30 @@
+<h1>Articles Index file</h1>
+
+<table>
+<thead>
+<th>Title</th>
+<th>Leírás</th>
+<th>Action</th>
+</thead>
+<tbody>
+<% @data.each do |item| %>
+
+
+<tr>
+
+
+<td><%= item.title %></td>
+<td><%= item.description %></td>
+<td>
+<%= link_to "Show" , "/articles/#{ item.id }" %>
+
+ EDIT, DESTROY</td>
+</tr>
+
+<% end %>
+
+
+</tbody>
+
+</table>
+
