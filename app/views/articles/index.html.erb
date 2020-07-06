@@ -17,8 +17,9 @@
 <td><%= item.description %></td>
 <td>
 <%= link_to "Show" , "/articles/#{ item.id }" %>
+<%= link_to "Edit" , "/articles/#{ item.id }/edit" %>
 
- EDIT, DESTROY</td>
+  DESTROY</td>
 </tr>
 
 <% end %>
