@@ -1,4 +1,13 @@
 <h1>NEW ARTICLES</h1>
+<% if @article.errors.any? %>
+<h2>A következő hibákat észleltük:</h2>
+    <% @article.errors.full_messages.each do |f| %>
+
+<li class="bg-danger m-2-sm"> <%= f %></li>
+
+    <% end %>
+
+<% end %>
 
 <%= form_with scope: :article , url: articles_path, local: true  do |f| %>
 <div class="container">
