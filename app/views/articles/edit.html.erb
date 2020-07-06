@@ -1,3 +1,31 @@
-<h1>EDITOR</h1>
+<h1>EDIT ARTICLES</h1>
+<% if @article.errors.any? %>
+<h2>A következő hibákat észleltük:</h2>
+    <% @article.errors.full_messages.each do |f| %>
 
-<%= @article.title %>
+<li class="bg-danger m-2-sm"> <%= f %></li>
+
+    <% end %>
+
+<% end %>
+
+<%= form_with(model: @article, local: true)  do |f| %>
+<div class="container">
+<p>
+<%= f.label :title %>
+
+<%= f.text_field :title %>
+</p>
+<p>
+<%= f.label :description %><p>
+
+<%= f.text_area :description %>
+</p>
+</p>
+<p>
+<%= f.submit %>
+</p>
+<% end %>
+</div>
+
+
