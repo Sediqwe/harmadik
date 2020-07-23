@@ -18,7 +18,7 @@
 <td>
 <%= link_to "Mutat" , "/articles/#{ item.id }" %>
 <%= link_to "Módosít" , "/articles/#{ item.id }/edit" %>
-<%= link_to "Töröl" , "/articles/#{ item.id }" %>
+<%= link_to "Töröl" , article_path(item), method: :delete %>
 
   </td>
 </tr>
