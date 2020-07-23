@@ -1,4 +1,4 @@
-<h1>NEW ARTICLES</h1>
+<h1>Új Blog bejegyzés</h1>
 <% if @article.errors.any? %>
 <h2>A következő hibákat észleltük:</h2>
     <% @article.errors.full_messages.each do |f| %>
@@ -12,18 +12,17 @@
 <%= form_with scope: :article , url: articles_path, local: true  do |f| %>
 <div class="container">
 <p>
-<%= f.label :title %>
+<%= f.label :Új_cím %>
 
 <%= f.text_field :title %>
 </p>
 <p>
-<%= f.label :description %><p>
-
+<%= f.label :Tartalom %><p>
 <%= f.text_area :description %>
 </p>
 </p>
 <p>
-<%= f.submit %>
+<%= f.submit :Beküldés %>
 </p>
 <% end %>
 </div>

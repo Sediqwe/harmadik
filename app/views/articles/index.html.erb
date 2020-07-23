@@ -16,10 +16,11 @@
 <td><%= item.title %></td>
 <td><%= item.description %></td>
 <td>
-<%= link_to "Show" , "/articles/#{ item.id }" %>
-<%= link_to "Edit" , "/articles/#{ item.id }/edit" %>
+<%= link_to "Mutat" , "/articles/#{ item.id }" %>
+<%= link_to "Módosít" , "/articles/#{ item.id }/edit" %>
+<%= link_to "Töröl" , "/articles/#{ item.id }" %>
 
-  DESTROY</td>
+  </td>
 </tr>
 
 <% end %>

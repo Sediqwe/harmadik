@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     def update
         @article = Article.find(params[:id])
         if @article.update(params.require(:article).permit(:title, :description))
-            flash[:notice] = "Minden rendben, a frissíts"
+            flash[:notice] = "Minden rendben, a frissítés működik"
             redirect_to @article
         else
         render 'edit'    
@@ -38,7 +38,9 @@ class ArticlesController < ApplicationController
     
     
     end
-
+    def destroy
+        
+    end
 
    
 
