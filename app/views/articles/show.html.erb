@@ -3,3 +3,9 @@
 
 <h1>Cím:"<%= @article.title%>"</h1>
 <h2>Tartalom: "<%= @article.description%>"</h1>
+
+
+<p></p>
+<%= link_to "Főoldal" , articles_path() %>
+<%= link_to "Módosít", edit_article_path(@article.id) %>
+<%= link_to "Töröl" , article_path(@article.id), method: :delete, data: { confirm: "Biztos vagy benne?"} %>

@@ -16,9 +16,10 @@
 <td><%= item.title %></td>
 <td><%= item.description %></td>
 <td>
-<%= link_to "Mutat" , "/articles/#{ item.id }" %>
-<%= link_to "Módosít" , "/articles/#{ item.id }/edit" %>
-<%= link_to "Töröl" , article_path(item), method: :delete %>
+<%= link_to "Mutat" , article_path(item) %>
+<%= link_to "Módosít", edit_article_path(item) %>
+<%= link_to "Töröl" , article_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"} %>
+
 
   </td>
 </tr>
@@ -29,4 +30,4 @@
 </tbody>
 
 </table>
-
+<%= link_to "Új bejegyzés", new_article_path() %>

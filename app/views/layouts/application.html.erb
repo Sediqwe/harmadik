@@ -19,15 +19,15 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="/articles">BLOG bejegyzések</a>
+              <%= link_to "BLOG" , articles_path() %>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/articles/new">Új blog bejegyzés</a>
+          &nbsp;&nbsp;
+           <li class="nav-item">
+              <%= link_to "RÓLAM" , about_path() %>
           </li>
+         
           
           
         </ul>
