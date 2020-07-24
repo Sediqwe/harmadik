@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
+    before_action :atricle_read, only: [:show, :edit, :update , :destroy]
 
     def show
-        @article = Article.find(params[:id])
+      
     end
 
     def index
@@ -9,14 +10,14 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        @article = Article.find(params[:id])
+      
     end
     def new
         @article = Article.new
     end
 
     def create
-        @article = Article.new(params.require(:article).permit(:title, :description))
+        @article = Article.new(permitke)
         if @article.save;
             flash[:notice]  = "Minden rendben, a felvétel megtörtént"
             redirect_to article_path(@article)      
@@ -28,8 +29,8 @@ class ArticlesController < ApplicationController
     end
 
     def update
-        @article = Article.find(params[:id])
-        if @article.update(params.require(:article).permit(:title, :description))
+      
+        if @article.update(permitke)
             flash[:notice] = "Minden rendben, a frissítés működik"
             redirect_to @article
         else
@@ -39,13 +40,23 @@ class ArticlesController < ApplicationController
     
     end
     def destroy
-        @article = Article.find(params[:id])
+       
         @article.destroy
        
         redirect_to articles_path
     end
+private
 
+def atricle_read
+    @article = Article.find(params[:id])
+end
    
+def permitke
+    params.require(:article).permit(:title, :description)
+
+
+end
+
 
     
 
