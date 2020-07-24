@@ -4,40 +4,14 @@
     <title>Harmadik</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Pityu Papa visszatért</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          
-          <li class="nav-item">
-              <%= link_to "BLOG" , articles_path() %>
-          </li>
-          &nbsp;&nbsp;
-           <li class="nav-item">
-              <%= link_to "RÓLAM" , about_path() %>
-          </li>
-         
-          
-          
-        </ul>
-       
-      </div>
-    </nav>
-
-  <% flash.each do |name, msg| %>
-  <%= msg %>
-  <% end %>
+  
+  <body class="d-flex flex-column">
+    <%= render 'layouts/navbar' %>  
+    <%= render 'layouts/messages' %>
     <%= yield %>
   </body>
 </html>

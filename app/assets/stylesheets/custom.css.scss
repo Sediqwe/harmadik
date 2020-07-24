@@ -1,0 +1,38 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+#logo{
+    float: left;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+#home_div{
+    margin-top: 25px;
+}
+.jumbotron{
+    background-image: asset-url('elso.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+}
+
+html,
+body {
+  height: 100%;
+  background-color: gray;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+/* Other Classes for Page Styling */
+
