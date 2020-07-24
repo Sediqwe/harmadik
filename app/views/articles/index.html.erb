@@ -1,33 +1,36 @@
-<h1>Articles Index file</h1>
+<h1>Blog bejegyzések</h1>
 
-<table>
-<thead>
-<th>Title</th>
-<th>Leírás</th>
-<th>Action</th>
-</thead>
-<tbody>
+<div class="container">
 <% @article.each do |item| %>
 
 
-<tr>
+<div class="card text-center shadow bg-white rounded">
+  <div class="card-header">
+    <h5 class="card-title">by Sediqwe</h5>
+  </div>
+  <div class="card-body">
+    Cím:
+    <p><%= link_to item.title, article_path(item), class:"text-success" %></p>
+    Tartalom:
+    <p class="card-text"><%= item.description %></p>
+        <%= link_to "Mutat" , article_path(item) , class:"btn btn-primary" %>
+<%= link_to "Módosít", edit_article_path(item), class:"btn btn-primary" %>
+<%= link_to "Töröl" , article_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-danger" %>
+  </div>
+  <div class="card-footer text-muted">
+  <%= item.created_at %>
+  </div>
+</div>
+<p></p>
 
 
-<td><%= item.title %></td>
-<td><%= item.description %></td>
-<td>
-<%= link_to "Mutat" , article_path(item) %>
-<%= link_to "Módosít", edit_article_path(item) %>
-<%= link_to "Töröl" , article_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"} %>
 
 
-  </td>
-</tr>
+
 
 <% end %>
+</div>
 
-
-</tbody>
 
 </table>
 <%= link_to "Új bejegyzés", new_article_path() %>

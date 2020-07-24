@@ -7,6 +7,8 @@
     text-transform: uppercase;
     letter-spacing: -1px;
     font-weight: bold;
+    text-decoration: none;
+    padding-right: 50px;
 }
 #home_div{
     margin-top: 25px;
@@ -23,7 +25,7 @@
 html,
 body {
   height: 100%;
-  background-color: gray;
+  background-color: bisque;
 }
 
 #page-content {
