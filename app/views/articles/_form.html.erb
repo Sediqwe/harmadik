@@ -1,13 +1,5 @@
 
-<% if @article.errors.any? %>
-<h2>A következő hibákat észleltük:</h2>
-    <% @article.errors.full_messages.each do |f| %>
-
-<li class="bg-danger m-2-sm"> <%= f %></li>
-
-    <% end %>
-
-<% end %>
+<%= render 'errors' %>
 
 <%= form_with(model: @article, local: true)  do |f| %>
 <div class="container">

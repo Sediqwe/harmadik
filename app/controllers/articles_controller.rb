@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
     def update
       
         if @article.update(permitke)
-            flash[:notice] = "Minden rendben, a frissítés működik"
+            flash[:notice] = "A módosítás sikeresen megtörtént!"
             redirect_to @article
         else
         render 'edit'    
@@ -45,6 +45,7 @@ class ArticlesController < ApplicationController
        
         redirect_to articles_path
     end
+
 private
 
 def atricle_read
