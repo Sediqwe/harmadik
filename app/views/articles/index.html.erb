@@ -1,6 +1,7 @@
-<h1>Blog bejegyzések</h1>
 
 <div class="container">
+<h1 class="text-center">Blog bejegyzések</h1>
+<%= link_to "Új bejegyzés", new_article_path() %>
 <% @article.each do |item| %>
 
 
@@ -12,13 +13,14 @@
     Cím:
     <p><%= link_to item.title, article_path(item), class:"text-success" %></p>
     Tartalom:
-    <p class="card-text"><%= item.description %></p>
+    <p class="card-text"><%= truncate(item.description, length: 30) %></p>
         <%= link_to "Mutat" , article_path(item) , class:"btn btn-primary" %>
 <%= link_to "Módosít", edit_article_path(item), class:"btn btn-primary" %>
 <%= link_to "Töröl" , article_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-danger" %>
   </div>
   <div class="card-footer text-muted">
-  <%= item.created_at %>
+  Készítve: <%= time_ago_in_words(item.created_at) %><p>
+  Módosítva:<%= time_ago_in_words(item.updated_at) %>
   </div>
 </div>
 <p></p>
@@ -33,4 +35,4 @@
 
 
 </table>
-<%= link_to "Új bejegyzés", new_article_path() %>
+

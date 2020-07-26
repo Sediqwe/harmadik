@@ -1,30 +1,5 @@
-<h1>Új Blog bejegyzés</h1>
-<% if @article.errors.any? %>
-<h2>A következő hibákat észleltük:</h2>
-    <% @article.errors.full_messages.each do |f| %>
-
-<li class="bg-danger m-2-sm"> <%= f %></li>
-
-    <% end %>
-
-<% end %>
-
-<%= form_with scope: :article , url: articles_path, local: true  do |f| %>
-<div class="container">
-<p>
-<%= f.label :Új_cím %>
-
-<%= f.text_field :title %>
-</p>
-<p>
-<%= f.label :Tartalom %><p>
-<%= f.text_area :description %>
-</p>
-</p>
-<p>
-<%= f.submit :Beküldés %>
-</p>
-<% end %>
+<h1 class="text-center">Új Blog bejegyzés</h1>
+<%= render 'form' %>
 <%= link_to "Főoldal" , articles_path() %>
 </div>
 
