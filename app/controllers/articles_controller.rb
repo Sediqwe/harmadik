@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(permitke)
+        @article.user = User.first
         if @article.save;
             flash[:notice]  = "Minden rendben, a felvétel megtörtént"
             redirect_to article_path(@article)      
@@ -53,7 +54,7 @@ def atricle_read
 end
    
 def permitke
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description )
 
 
 end
