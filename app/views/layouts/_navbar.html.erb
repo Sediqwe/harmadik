@@ -12,10 +12,14 @@
       <%= link_to "Rólam", about_path, class: "nav-link" %>
         
       </li>
-      <li class="nav-item">
-        <%= link_to "Blog", articles_path, class: "nav-link" %>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blogolda</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <%= link_to "ÚJ Post", new_article_path , class:"dropdown-item"%>
+          <%= link_to "Blog", articles_path , class:"dropdown-item"%>
+          
+        </div>
       </li>
-      
      
     </ul>
    

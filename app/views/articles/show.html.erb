@@ -1,11 +1,25 @@
-<h1>Így néz ki a BLOG bejegyzésed:</h1>
+<div class="container">
+  <h1 class="text-center"><%= @article.title %></h1>
+    <div class="card text-center shadow bg-white rounded">
+      <div class="card-header">
+        <h5 class="card-title">by Sediqwe</h5>
+      </div>
+      <div class="card-body">
+      <div class=" text-left">
+      <%= simple_format(@article.description) %>
+      </div>
+        <%= link_to "Főoldal", articles_path, class:"btn btn-primary" %>
+        <%= link_to "Módosít", edit_article_path(@article), class:"btn btn-primary" %>
+        <%= link_to "Töröl" , article_path(@article), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-danger" %>
+      </div>
+      <div class="card-footer text-muted">
+          Készítve: <%= time_ago_in_words(@article.created_at) %>
+          Módosítva:<%= time_ago_in_words(@article.updated_at) %>
+      </div>
+    </div>
+  
+</div>
 
 
-<h1>Cím:"<%= @article.title%>"</h1>
-<h2>Tartalom: "<%= @article.description%>"</h1>
 
 
-<p></p>
-<%= link_to "Főoldal" , articles_path() %>
-<%= link_to "Módosít", edit_article_path(@article.id) %>
-<%= link_to "Töröl" , article_path(@article.id), method: :delete, data: { confirm: "Biztos vagy benne?"} %>
