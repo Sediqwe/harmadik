@@ -1,4 +1,4 @@
-<% if @article.errors.any? %>
+<% if obj.errors.any? %>
     
         <div class="row justify-content-center">
             
@@ -7,7 +7,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="alert-heading">A következő hibákat észleltük:</h4>
-                <% @article.errors.full_messages.each do |f| %>
+                <% obj.errors.full_messages.each do |f| %>
                     
                     <div><li><%= f %></li></div>
                     <% end %>

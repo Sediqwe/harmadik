@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
     end
 
     def index
-        @article = Article.all
+        @article = Article.all.order(id: :desc)
     end
 
     def edit

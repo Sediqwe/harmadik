@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="text-center"><%= @user.username %></h1>
+    <div class="card text-center shadow bg-white rounded">
+      <div class="card-header">
+        <h5 class="card-title">by Sediqwe</h5>
+      </div>
+      <div class="card-body">
+      <div class=" text-left">
+      <%= simple_format(@user.email) %>
+      <%= simple_format(@user.password_digest) %>
+      </div>
+        <%= link_to "Főoldal", articles_path, class:"btn btn-primary" %>
+      </div>
+      <div class="card-footer text-muted">
+          Létrehozva: <%= time_ago_in_words(@user.created_at) %>
+          Módosítva:<%= time_ago_in_words(@user.updated_at) %>
+      </div>
+    </div>
+  
+</div>
+
+
+
+
