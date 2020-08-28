@@ -6,20 +6,20 @@
 
     <div class="card text-center shadow bg-white rounded">
       <div class="card-header">
-        <h5 class="card-title"><p><%= link_to item.username, item, class:"text-success" %></p></h5>
+        <h5 class="card-title"><p><%= link_to item.username, item, class:"text-success" %>(#<%= item.id %>)</p></h5>
       </div>
       <div class="card-body">
-        Adatok: ID : # <%= item.id %>
-        <p class="card-text"><%= truncate(item.email, length: 30) %>
+        
+        <%= gravatar_for item , size: 200 %>
         <br>
-        <%= truncate(item.password_digest, length: 300) %></p>
-            <%= link_to "Mutat" , user_path(item) , class:"btn btn-primary" %>
-        <%= link_to "Módosít", edit_user_path(item), class:"btn btn-primary" %>
-        <%= link_to "Töröl" , user_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-danger" %>
+        
+            <%= link_to "Mutat" , user_path(item) , class:"btn btn-outline-primary" %>
+        <%= link_to "Módosít", edit_user_path(item), class:"btn btn-outline-primary" %>
+        <%= link_to "Töröl" , user_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-outline-danger" %>
       </div>
       <div class="card-footer text-muted">
-          Készítve: <%= time_ago_in_words(item.created_at) %>
-          Módosítva:<%= time_ago_in_words(item.updated_at) %>
+          Regisztrálva: <%= time_ago_in_words(item.created_at) %>
+          
       </div>
     </div>
     <br>
