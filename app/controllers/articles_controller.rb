@@ -2,11 +2,12 @@ class ArticlesController < ApplicationController
     before_action :atricle_read, only: [:show, :edit, :update , :destroy]
 
     def show
-      
+        
     end
 
     def index
         @article = Article.all.order(id: :desc)
+        
     end
 
     def edit

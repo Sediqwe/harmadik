@@ -1,21 +1,22 @@
 <div class="container">
-  <h1 class="text-center"><%= @user.username %></h1>
+  <br>
     <div class="card text-center shadow bg-white rounded">
       <div class="card-header">
-        <h5 class="card-title">by Sediqwe</h5>
+        <h5 class="card-title"><%= link_to @user.username, edit_user_path(@user.id), class: "bg-light"  %></h5>
       </div>
       <div class="card-body">
       <div class=" text-left">
-      <%= simple_format(@user.email) %>
-      <%= simple_format(@user.password_digest) %>
+      <%= gravatar_for @user , size: 200 %>
       </div>
-        <%= link_to "Főoldal", articles_path, class:"btn btn-primary" %>
+        <%= link_to "Főoldal", users_path, class:"btn btn-primary" %>
       </div>
       <div class="card-footer text-muted">
           Létrehozva: <%= time_ago_in_words(@user.created_at) %>
           Módosítva:<%= time_ago_in_words(@user.updated_at) %>
       </div>
     </div>
+
+    <%= render 'articles/article' %>
   
 </div>
 

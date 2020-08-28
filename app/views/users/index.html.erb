@@ -6,10 +6,10 @@
 
     <div class="card text-center shadow bg-white rounded">
       <div class="card-header">
-        <h5 class="card-title"><p><%= link_to item.username, user_path(item), class:"text-success" %></p></h5>
+        <h5 class="card-title"><p><%= link_to item.username, item, class:"text-success" %></p></h5>
       </div>
       <div class="card-body">
-        Adatok:
+        Adatok: ID : # <%= item.id %>
         <p class="card-text"><%= truncate(item.email, length: 30) %>
         <br>
         <%= truncate(item.password_digest, length: 300) %></p>
@@ -22,6 +22,7 @@
           Módosítva:<%= time_ago_in_words(item.updated_at) %>
       </div>
     </div>
+    <br>
   <% end %>
 </div>
 

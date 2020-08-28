@@ -10,6 +10,9 @@
      
       <li class="nav-item">
       <%= link_to "Rólam", about_path, class: "nav-link" %>
+      </li>
+      <li>
+      <%= link_to "Belépés", belepes_path, class: "nav-link" %>
         
       </li>
        <li class="nav-item dropdown">
@@ -17,6 +20,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <%= link_to "ÚJ Post", new_article_path , class:"dropdown-item"%>
           <%= link_to "Blog", articles_path , class:"dropdown-item"%>
+          <%= link_to "Userek", users_path , class:"dropdown-item"%>
           
         </div>
       </li>

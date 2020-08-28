@@ -1,0 +1,22 @@
+<% @article.each do |item| %>
+
+
+    <div class="card text-center shadow bg-white rounded">
+      <div class="card-header">
+        <h5 class="card-title"><%= item.user.username  %></h5>
+      </div>
+      <div class="card-body">
+        Cím:
+        <p><%= link_to item.title, article_path(item), class:"text-success" %></p>
+        Tartalom:
+        <p class="card-text"><%= truncate(item.description, length: 30) %></p>
+            <%= link_to "Mutat" , article_path(item) , class:"btn btn-primary" %>
+        <%= link_to "Módosít", edit_article_path(item), class:"btn btn-primary" %>
+        <%= link_to "Töröl" , article_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-danger" %>
+      </div>
+      <div class="card-footer text-muted">
+          Készítve: <%= time_ago_in_words(item.created_at) %>
+          Módosítva:<%= time_ago_in_words(item.updated_at) %>
+      </div>
+    </div>
+  <% end %>
