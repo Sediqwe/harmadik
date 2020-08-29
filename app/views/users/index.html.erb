@@ -1,6 +1,10 @@
 <div class="container">
   <h1 class="text-center">Userek adatai</h1>
+  <div class="flickr_pagination mb-4">
   
+    <%= will_paginate @user, :container => false %>
+  </div>
+
   <% @user.each do |item| %>
 
 
@@ -12,6 +16,7 @@
         
         <%= gravatar_for item , size: 200 %>
         <br>
+         Aktív post: <%= item.articles.count %><br><br>
         
             <%= link_to "Mutat" , user_path(item) , class:"btn btn-outline-primary" %>
         <%= link_to "Módosít", edit_user_path(item), class:"btn btn-outline-primary" %>
@@ -24,6 +29,11 @@
     </div>
     <br>
   <% end %>
+
+   <div class="flickr_pagination mb-4">
+  
+    <%= will_paginate @user, :container => false %>
+  </div>
 </div>
 
 

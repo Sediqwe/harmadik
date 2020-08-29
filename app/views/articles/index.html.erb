@@ -1,7 +1,15 @@
 <div class="container">
   <h1 class="text-center">Blog bejegyzések</h1>
+ <div class="flickr_pagination">
   
+    <%= will_paginate @article, :container => false %>
+  </div>
   <%= render 'article' %>
+
+  <div class="flickr_pagination mb-4">
+  
+    <%= will_paginate @article, :container => false %>
+  </div>
 </div>
 
 

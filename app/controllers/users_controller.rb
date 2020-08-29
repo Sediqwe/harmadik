@@ -2,13 +2,13 @@ class UsersController < ApplicationController
   
    
     def index
-    @user = User.all
+    @user = User.paginate(page: params[:page], per_page: 3)
    end
     
    
     def show
     @user = User.find(params[:id])
-    @article = @user.articles
+    @article = @user.articles.paginate(page: params[:page], per_page: 2)
 end
 def destroy
     @user = User.find(params[:id])
@@ -27,7 +27,7 @@ def update
     @user = User.find(params[:id])
     if @user.update(permitke)
         flash[:notice] = "A módosítás sikeresen megtörtént!"
-        redirect_to users_path
+        redirect_to @user
     else
     render 'edit'    
     end

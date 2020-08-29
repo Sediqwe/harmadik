@@ -8,14 +8,17 @@
       <div class=" text-left">
       <%= gravatar_for @user , size: 200 %>
       </div>
-        <%= link_to "Főoldal", users_path, class:"btn btn-primary" %>
+        <%= link_to "Profil módosítás", edit_user_path, class:"btn btn-primary" %>
       </div>
       <div class="card-footer text-muted">
           Létrehozva: <%= time_ago_in_words(@user.created_at) %>
           Módosítva:<%= time_ago_in_words(@user.updated_at) %>
       </div>
     </div>
-
+  <div class="flickr_pagination mb-4">
+  
+    <%= will_paginate @article, :container => false %>
+  </div>
     <%= render 'articles/article' %>
   
 </div>

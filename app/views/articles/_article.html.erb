@@ -1,3 +1,5 @@
+
+
 <% @article.each do |item| %>
 
 
@@ -6,7 +8,7 @@
         <h5 class="card-title"><%= link_to item.title, article_path(item), class:"text-success" %></h5>
       </div>
       <div class="card-body">
-        Készítő:<%= item.user.username %><p>
+        Készítő:<%= link_to item.user.username, user_path(item.user) %><p>
       
         Tartalom:
         <p class="card-text"><%= simple_format(truncate(item.description, length: 300)) %></p>
