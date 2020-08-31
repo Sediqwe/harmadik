@@ -1,28 +1,29 @@
 
-
-<%= form_with do |f| %>
 <div class="container">
     <div class="shadow rounded p-3 mb-5 bg-info ">
+<%= form_with(scope: :session, url: belepes_path, local: true)  do |f| %>
+
          <div class="form-group row">
             <div class="col-2">
-            <%= f.label :Email %>
+            <%= f.label :"E-mail" %>
             </div>
-            <div class="col-10"><%= f.text_field :email, class:"form-control" %>
+            <div class="col-10"><%= f.text_field :email, class:"form-control", placeholder: "E-mail cím" %>
             </div>
         </div>
          <div class="form-group row">
             <div class="col-2">
-            <%= f.label :Password%>
+            <%= f.label :Password %>
             </div>
-            <div class="col-10"><%= f.text_field :password, class:"form-control",placeholder: "Add meg a jelszót" %>
+            <div class="col-10"><%= f.text_field :password, class:"form-control", placeholder: "Jelszó" %>
             </div>
         </div>
         <div class="row justify-content-center">
-            <%= f.submit "Belépés",  class:"m-3 btn btn-primary"%><%%>
+            <%= f.submit "Belépés", class:"btn btn-primary" %>
         </div>
+
+<% end %>
     </div>
 </div>
-<% end %>
 <div class="justify-content-center row">
-<%= link_to "[ Vissza a főmenübe ]" , articles_path %>
+
 </div>
