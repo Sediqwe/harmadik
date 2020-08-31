@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(permitke)
-        @article.user = User.last
+        @article.user = current_user
         if @article.save;
             flash[:notice]  = "Minden rendben, a felvétel megtörtént"
             redirect_to article_path(@article)      
