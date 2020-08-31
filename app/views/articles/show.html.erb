@@ -12,8 +12,10 @@
       <%= simple_format(@article.description) %>
       </div>
         <%= link_to "Főoldal", articles_path, class:"btn btn-primary" %>
+        <% if logged_in? && @article.user == current_user%>
         <%= link_to "Módosít", edit_article_path(@article), class:"btn btn-primary" %>
         <%= link_to "Töröl" , article_path(@article), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-danger" %>
+        <% end %>
       </div>
       <div class="card-footer text-muted">
           Készítve: <%= time_ago_in_words(@article.created_at) %>

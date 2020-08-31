@@ -2,13 +2,23 @@
   <br>
     <div class="card text-center shadow bg-white rounded">
       <div class="card-header">
-        <h5 class="card-title"><%= link_to @user.username, edit_user_path(@user.id), class: "bg-light"  %></h5>
+        <h5 class="card-title">
+        
+        <% if logged_in? and @user == current_user%>
+        <%= link_to @user.username, edit_user_path(@user.id), class: "bg-light"  %>
+        <%else%>
+        <%= link_to @user.username, user_path(@user.id), class: "bg-light"  %>
+        <% end %>
+        
+        </h5>
       </div>
       <div class="card-body">
       <div class=" text-left">
       <%= gravatar_for @user , size: 200 %>
       </div>
-        <%= link_to "Profil módosítás", edit_user_path, class:"btn btn-primary" %>
+        <% if logged_in? and @user == current_user%>
+              <%= link_to "Profil módosítás", edit_user_path, class:"btn btn-primary" %>
+        <% end %>  
       </div>
       <div class="card-footer text-muted">
           Létrehozva: <%= time_ago_in_words(@user.created_at) %>

@@ -13,8 +13,12 @@
         Tartalom:
         <p class="card-text"><%= simple_format(truncate(item.description, length: 300)) %></p>
         <%= link_to "Mutat" , article_path(item) , class:"btn btn-primary" %>
+        <% if logged_in? && item.user == current_user %>
+        
+        
         <%= link_to "Módosít", edit_article_path(item), class:"btn btn-primary" %>
         <%= link_to "Töröl" , article_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-danger" %>
+        <% end %>
       </div>
       <div class="card-footer text-muted">
           Készítve: <%= time_ago_in_words(item.created_at) %>
