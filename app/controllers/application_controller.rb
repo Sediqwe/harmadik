@@ -6,5 +6,10 @@ class ApplicationController < ActionController::Base
     def logged_in?
         !!current_user
     end
-    
+    def required_user
+        if !logged_in?
+            flash[:alert] = "Ennek a funkciónak a használatához be kell jelentkezz"
+            redirect_to belepes_path
+        end
+    end
 end

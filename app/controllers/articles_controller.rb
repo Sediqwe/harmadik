@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
     before_action :atricle_read, only: [:show, :edit, :update , :destroy]
-
+    before_action :required_user, except: [:show, :index]
+    before_action :required_same_user, only: [:edit, :update, :destroy]
     def show
         
     end
@@ -61,10 +62,10 @@ def permitke
 
 end
 
-
-    
-
-
-
-
+    def required_same_user
+        if current_user != @article.user
+            flash[:alert] = "Csak a saját tulajdonú postot lehet törölni vagy módosítani"
+            redirect_to article_path
+        end
+    end
 end

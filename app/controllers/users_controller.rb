@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :destroy, :show, :update]
+  before_action :required_user, except: [:show, :index]
+  before_action :required_same_user, except: [:show, :index]
    
     def index
     @user = User.paginate(page: params[:page], per_page: 3)
@@ -53,5 +55,12 @@ def permitke
 end
 def set_user
     @user = User.find(params[:id])
+end
+
+def required_same_user
+    if current_user != @user
+        flash[:alert] = "Csak a saját tulajdonú usert lehet módosítani"
+        redirect_to user_path
+    end
 end
 end
