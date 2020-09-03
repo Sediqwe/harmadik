@@ -41,10 +41,11 @@
     <% if logged_in? %>
      <ul class="navbar-nav">
          <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.username %></a>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= "Admin " if current_user.admin? %>Profil <%= current_user.username %></a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <%= link_to "Profil módosítás", edit_user_path(current_user) , class:"dropdown-item"%>
           <%= link_to "Profil megtekintés", user_path(current_user) , class:"dropdown-item"%>
+          <%= link_to "Profil törlés", user_path(current_user) , class:"dropdown-item text-danger", method: :delete, data: { confirm: "Biztos vagy a törlésben?"}  %>
           <%= link_to "Kilépés", kilepes_path, class:"dropdown-item", method: :delete %>
           
         </div>

@@ -17,11 +17,15 @@
         <%= gravatar_for item , size: 200 %>
         <br>
          Aktív post: <%= item.articles.count %><br><br>
-        
+            
             <%= link_to "Mutat" , user_path(item) , class:"btn btn-outline-primary" %>
-            <% if logged_in? && item == current_user %>
-        <%= link_to "Módosít", edit_user_path(item), class:"btn btn-outline-primary" %>
-        <%= link_to "Töröl" , user_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-outline-danger" %>
+            <% if logged_in? %>
+              <% if current_user == item %>
+                <%= link_to "Módosít", edit_user_path(item), class:"btn btn-outline-primary" %>
+              <%end%>
+              <% if current_user.admin? %>
+                <%= link_to "Töröl" , user_path(item), method: :delete, data: { confirm: "Biztos vagy benne?"}, class:"btn btn-outline-danger" %>
+              <% end %>
         <% end %>
       </div>
       <div class="card-footer text-muted">

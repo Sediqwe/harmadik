@@ -63,7 +63,7 @@ def permitke
 end
 
     def required_same_user
-        if current_user != @article.user
+        if current_user != @article.user && !current_user.admin?
             flash[:alert] = "Csak a saját tulajdonú postot lehet törölni vagy módosítani"
             redirect_to article_path
         end

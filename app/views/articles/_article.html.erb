@@ -13,7 +13,7 @@
         Tartalom:
         <p class="card-text"><%= simple_format(truncate(item.description, length: 300)) %></p>
         <%= link_to "Mutat" , article_path(item) , class:"btn btn-primary" %>
-        <% if logged_in? && item.user == current_user %>
+        <% if logged_in? && (item.user == current_user || current_user.admin?) %>
         
         
         <%= link_to "Módosít", edit_article_path(item), class:"btn btn-primary" %>
