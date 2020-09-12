@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/regisztralas', to: 'users#new'
   resources :users, except: [ :new ]
   root 'pages#index'
-
+  resources :categories, except: [ :destory ]
   resources :articles
 
 

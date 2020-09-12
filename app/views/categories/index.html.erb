@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="text-center">Kategóriák</h1>
+ <div class="flickr_pagination">
+  
+    <%= will_paginate @category, :container => false %>
+  </div>
+
+<% @categories.each do |item| %>
+
+
+    <div class="card text-center shadow bg-white rounded">
+      <div class="card-header">
+        <h5 class="card-title"><%= link_to item.name, category_path(item), class:"text-success" %></h5>
+      </div>
+       <div class="card-footer text-muted">
+          Készítve: <%= time_ago_in_words(item.created_at) %>
+          Módosítva:<%= time_ago_in_words(item.updated_at) %>
+      </div>
+    </div>
+    <br>
+  <% end %>
+
+
+  <div class="flickr_pagination mb-4">
+  
+    <%= will_paginate @category, :container => false %>
+  </div>
+</div>

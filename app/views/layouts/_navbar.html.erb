@@ -36,6 +36,17 @@
           
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategóriák</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <% if logged_in? && current_user.admin? %>
+            <%= link_to "Új kategória", new_category_path , class:"dropdown-item"%>
+          <% end %>
+          <%= link_to "Kategóriák", categories_path , class:"dropdown-item"%>
+          
+          
+        </div>
+      </li>
      
     </ul>
     <% if logged_in? %>
