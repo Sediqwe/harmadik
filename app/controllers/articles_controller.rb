@@ -57,7 +57,7 @@ def atricle_read
 end
    
 def permitke
-    params.require(:article).permit(:title, :description )
+    params.require(:article).permit(:title, :description, category_ids:[] )
 
 
 end
