@@ -9,7 +9,8 @@
       </div>
       <div class="card-body">
         Készítő:<%= link_to item.user.username, user_path(item.user) %><p>
-      
+        <%= render item.categories %>
+        <br>
         Tartalom:
         <p class="card-text"><%= simple_format(truncate(item.description, length: 300)) %></p>
         <%= link_to "Mutat" , article_path(item) , class:"btn btn-primary" %>

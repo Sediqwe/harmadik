@@ -1,1 +1,21 @@
 <h1 class="text-center mt-4">Kategória:<%= @category.name %>
+
+<div>
+ <% if logged_in? and current_user.admin? %>
+              <%= link_to "Profil módosítás", edit_category_path, class:"btn btn-primary" %>
+        <% end %>  
+      </div>
+      <div class="card-footer text-muted">
+          Létrehozva: <%= time_ago_in_words(@category.created_at) %>
+          Módosítva:<%= time_ago_in_words(@category.updated_at) %>
+      </div>
+    </div>
+  <div class="flickr_pagination mb-4">
+  
+    <%= will_paginate @article, :container => false %>
+  </div>
+    <%= render 'articles/article' %>
+   <div class="flickr_pagination mb-4">
+  
+    <%= will_paginate @article, :container => false %>
+  </div>

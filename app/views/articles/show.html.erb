@@ -4,7 +4,12 @@
       <div class="card-header">
         <h5 class="card-title"><%= @article.user.username if @article.user %>
         <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
+        <% if @article.categories.any? %>
         
+        <%= render @article.categories %>
+        
+        <% end %>
+
         </h5>
       </div>
       <div class="card-body">
